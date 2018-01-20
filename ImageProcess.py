@@ -80,3 +80,16 @@ class Graphics:
             #保存裁切后的图片  
             crop_img.save(self.outfile)             
 
+    def cut_by_ratio2(self):  
+        """按照图片长宽进行分割
+        
+        ------------
+        取中间的部分，裁剪成正方形
+        """  
+        im = Image.open(self.infile)  
+        (x, y) = im.size
+        region = (0, 0, x, y)
+        #裁切图片  
+        crop_img = im.crop(region)  
+        #保存裁切后的图片  
+        crop_img.save(self.outfile) 
